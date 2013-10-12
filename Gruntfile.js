@@ -1,3 +1,10 @@
+
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
+var mountFolder = function (connect, dir) {
+    return connect.static(require('path').resolve(dir));
+};
+
 // Grunt configuration wrapper function.
 module.exports = function (grunt) {
 
@@ -41,13 +48,22 @@ module.exports = function (grunt) {
          * To view the local site on another device on the same LAN, use your master machine's IP address instead, for example http://10.0.0.32:9001/.
          */
         connect: {
+            options: {
+                port: 9001, // The port on which the webserver will respond.
+                hostname: '*' // Default 'localhost'. Setting this to '*' will make the server accessible from anywhere. Useful for cross-device testing.
+            },
             livereload: {
                 options: {
-                    port: 9001, // The port on which the webserver will respond.
-                    hostname: '*', // Default 'localhost'. Setting this to '*' will make the server accessible from anywhere. Useful for cross-device testing.
-                    base: '<%= config.webroot %>', // The base (or root) directory from which files will be served. Defaults to the project Gruntfile's directory.
+                    middleware: function (connect) {
+                        return [
+                            lrSnippet,
+                            mountFolder(connect, '.tmp'),
+                            mountFolder(connect, 'app')
+                        ];
+                    }
                 }
             }
+
         },
 
 
@@ -55,9 +71,14 @@ module.exports = function (grunt) {
          * Run predefined tasks whenever watched file patterns are added, changed or deleted.
          */
         watch: {
-            options: {
-                // Reload assets live in the browser.
-                livereload: true // Default livereload listening port.
+            livereload: {
+              options: { livereload: true },
+              files : [
+                    '<%= config.webroot %>/*.html',
+                    '<%= config.webroot %>/styles/{,*/}*.less',
+                    '<%= config.webroot %>/js/{,*/}*.js',
+                    '<%= config.webroot %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                ]
             },
             html: {
                 files: ['<%= config.webroot %>/*.html'],
