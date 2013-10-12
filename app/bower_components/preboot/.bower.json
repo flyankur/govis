@@ -1,0 +1,12 @@
+{
+  "name": "preboot",
+  "homepage": "https://github.com/mdo/preboot",
+  "_release": "f308468855",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f308468855b29d8646246c7300b18bc02c51a87c"
+  },
+  "_source": "git://github.com/mdo/preboot.git",
+  "_target": "*"
+}
