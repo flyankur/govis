@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                 livereload: true // Default livereload listening port.
             },
             html: {
-                files: ['<%= config.webroot %>/html/*.html'],
+                files: ['<%= config.webroot %>/*.html'],
                 tasks: []
             },
             css: {
