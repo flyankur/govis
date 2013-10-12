@@ -1,0 +1,14 @@
+{
+  "name": "animate.less",
+  "version": "2.0.1",
+  "main": "./css/animate.css",
+  "homepage": "https://github.com/euskadi31/animate.less",
+  "_release": "2.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.1",
+    "commit": "36aed4578712941fe42fc1cad972787d36a4d149"
+  },
+  "_source": "git://github.com/euskadi31/animate.less.git",
+  "_target": "~2.0.1"
+}
