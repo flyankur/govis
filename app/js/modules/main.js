@@ -1,19 +1,3 @@
-requirejs.config({
-    baseUrl: 'js/libs',
-    paths: {
-        jquery: 'jquery',
-        d3: 'd3.min',
-        vega: 'vega.min'
-    },
-    shim: {
-        d3: {
-            exports: 'd3'
-        },
-        vega: {
-            exports: 'vg'
-        }
-    }
-});
 
 require( ['jquery'], function ( $ ) {
     console.log( $( '.test' ).text() );
