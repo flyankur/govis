@@ -5,7 +5,16 @@
  *
  * @return {Vega Spec}    Returns the specification for a bar graph vega
  */
-define( function() {
+define( ['bows'], function( bows ) {
+
+    var log = bows( 'barGraphVega' );
+
+    var messages = {
+        requested : 'requested barGraph Vega'
+    };
+
+    log( messages.requested );
+
     var spec = {
         "width"  : 400,
         "height" : 200,

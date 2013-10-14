@@ -3,7 +3,8 @@ var require = {
     paths: {
         jquery : 'libs/jquery',
         d3     : 'libs/d3.min',
-        vega   : 'libs/vega'
+        vega   : 'libs/vega',
+        bows   : 'libs/bows'
     },
     shim: {
         d3: {
