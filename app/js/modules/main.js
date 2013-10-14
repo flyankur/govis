@@ -1,5 +1,5 @@
 
-require( ['d3', 'vega', 'bows'], function( d3, vg, bows ) {
+require( ['d3', 'vega', 'bows', 'mediator'], function( d3, vg, bows, Mediator ) {
 
     var log = bows( 'mainModule' );
 
