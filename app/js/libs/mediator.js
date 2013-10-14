@@ -13,23 +13,7 @@
 * Last update: June 13 2013
 */
 
-(function(global, factory) {
-  'use strict';
-
-  if(typeof exports !== 'undefined') {
-    // Node/CommonJS
-    exports.Mediator = factory();
-  } else if(typeof define === 'function' && define.amd) {
-    // AMD
-    define('mediator-js', [], function() {
-      global.Mediator = factory();
-      return global.Mediator();
-    });
-  } else {
-    // Browser global
-    global.Mediator = factory();
-  }
-}(this, function() {
+define( function() {
   'use strict';
 
   // We'll generate guids for class instances for easy referencing later on.
@@ -217,7 +201,7 @@
             subsAfter = this._subscribers.length;
             y = subsAfter;
             if (subsAfter === subsBefore - 1){
-              x--;              
+              x--;
             }
             called = true;
           }
@@ -261,7 +245,7 @@
     getChannel: function(namespace){
       var channel = this._channels,
           namespaceHierarchy = namespace.split(':'),
-          x = 0, 
+          x = 0,
           y = namespaceHierarchy.length;
 
       if(namespace === ''){
@@ -352,6 +336,7 @@
   Mediator.Subscriber = Subscriber;
   Mediator.version = "0.9.5";
 
-  return Mediator;
-}));
-  
+  return new Mediator();
+});
+
+
