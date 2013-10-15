@@ -91,7 +91,7 @@ module.exports = function (grunt) {
                 ]
             },
             js: {
-                files: ['<%= config.webroot %>/js/app/**/*.js'],
+                files: ['<%= config.webroot %>/js/modules/*.js'],
                 tasks: [
                     'jshint'
                 ]
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
             // Define the files to lint.
             files: [
                 'Gruntfile.js',
-                '<%= config.webroot %>/js/app/**/*.js' // Only process custom scripts, exclude libraries.
+                '<%= config.webroot %>/js/modules/*.js' // Only process custom scripts, exclude libraries.
             ]
         },
 
